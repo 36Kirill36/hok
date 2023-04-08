@@ -1,9 +1,19 @@
+from datetime import datetime
 class Student:
-    # Поля класса
-    name = ''
-    year_of_birth = 2000
-    groop = 2
-    middle_mark = 8
+
+    def __init__(self, name ='', year = 2000, groop = 1, mark = 12, age = 23):
+        self.name = name
+        self.year = year
+        self.groop = groop
+        self.mark = mark
+        self.age = age
+
+    def get_age(self):
+        today = datetime.date.today().year
+        birth = int(self.year)
+        return \
+             f'{today - birth}\n' \
+
 
     def __str__(self):
         return self.get_stats()
@@ -11,10 +21,9 @@ class Student:
     def get_stats(self):
         return \
             f'Имя: {self.name}\n ' \
-            f'Год Рождения: {self.year_of_birth}\n'\
+            f'Год Рождения: {self.year}\n'\
             f'Группа:{self.groop}\n'\
-            f'Средняя оценка:{self.middle_mark}\n'
+            f'Средняя оценка:{self.mark}\n'\
+            f'возраст:{self.age}\n'
 
-    def get_age(self, year_of_birth):
-        import datetime
-        datetime.date.today().year  # 2023
+
